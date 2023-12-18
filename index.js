@@ -35,7 +35,7 @@ app.get("/api/:date", (req,res)=> {
   // input date to a Unix timestamp
   const dateRes = new Date(inputDate);
 
-  if(dateRes == "invalid"){
+  if(dateRes == "Invalid Date"){
     return res.json({ error : "Invalid Date" });
   }
 
