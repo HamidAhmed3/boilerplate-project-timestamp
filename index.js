@@ -24,14 +24,17 @@ app.get("/", function (req, res) {
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
+
+
+// empty date parameter
+app.get("/api", (req,res)=>{
+  const currentDate = new Date();
+  return res.json({ unix: currentDate.getTime(), utc: currentDate.toUTCString() });
+})
 // api date -> date
 app.get("/api/:date", (req,res)=> {
   let inputDate = req.params.date;
 
-  if(inputDate == ""){
-    const currentDate = new Date();
-    return res.json({ unix: currentDate.getTime(), utc: currentDate.toUTCString() })
-  }
   if(!isNaN(inputDate)){
     inputDate = parseInt(inputDate);
   }
