@@ -40,7 +40,7 @@ app.get("/api/:date", (req,res)=> {
   const dateRes = new Date(inputDate);
 
   res.send({ unix: dateRes.getTime(), utc: dateRes.toUTCString() })
-  
+   
 })
 
 // listen for requests :)
