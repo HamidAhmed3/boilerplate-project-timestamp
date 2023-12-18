@@ -28,6 +28,10 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/:date", (req,res)=> {
   let inputDate = req.params.date;
 
+  if(inputDate == " "){
+    const currentDate = new Date();
+    return res.json({ unix: currentDate.getTime(), utc: currentDate.toUTCString() })
+  }
   if(!isNaN(inputDate)){
     inputDate = parseInt(inputDate);
   }
