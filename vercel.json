@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "Node & express",
+    "name": "Request Header Parser Microservice",
     "builds": [
       { "src": "index.js", "use": "@vercel/node" }
     ],
