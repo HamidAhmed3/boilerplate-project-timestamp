@@ -28,16 +28,16 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/:date", (req,res)=> {
   let inputDate = req.params.date;
 
-  if(inputDate == "invalid"){
-    return res.json({ error : "Invalid Date" });
-  }
-
   if(!isNaN(inputDate)){
     inputDate = parseInt(inputDate);
   }
 
   // input date to a Unix timestamp
   const dateRes = new Date(inputDate);
+
+  if(dateRes == "invalid"){
+    return res.json({ error : "Invalid Date" });
+  }
 
   res.send({ unix: dateRes.getTime(), utc: dateRes.toUTCString() })
    
